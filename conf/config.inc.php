@@ -245,7 +245,7 @@ $max_attempts = 3;
 # Encryption, decryption keyphrase, required if $crypt_tokens = true
 # Please change it to anything long, random and complicated, you do not have to remember it
 # Changing it will also invalidate all previous tokens and SMS codes
-$keyphrase = "secret";
+$keyphrase = "abcdefghijklmn";
 
 # Reset URL (if behind a reverse proxy)
 #$reset_url = $_SERVER['HTTP_X_FORWARDED_PROTO'] . "://" . $_SERVER['HTTP_X_FORWARDED_HOST'] . $_SERVER['SCRIPT_NAME'];
