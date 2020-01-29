@@ -266,12 +266,9 @@ if ($pwd_show_policy_pos === 'above') {
 <?php } ?>
     <div class="form-group">
         <div class="col-sm-offset-4 col-sm-4">
-            <!--<button type="submit" class="btn btn-success">
-                <i class="fa fa-fw fa-check-square-o"></i> <?php echo $messages['submit']; ?>
-            </button>-->
-            <button type="submit" name="login" class="btn btn-primary" style="margin: 50px 0 0;display: block; width: 100%; margin: 50px 0 10px; padding: 15px 5px; font-size: 20px; box-sizing: border-box; line-height: normal;box-shadow: 0 1px 1px rgba(0,0,0,0.12); text-shadow: none;
+            <button type="submit" class="btn btn-primary" style="margin: 50px 0 0;display: block; width: 100%; margin: 50px 0 10px; padding: 15px 5px; font-size: 20px; box-sizing: border-box; line-height: normal;box-shadow: 0 1px 1px rgba(0,0,0,0.12); text-shadow: none;
                 font-family: 'SourceSansPro', Helvetica, Arial, sans-serif;
-                border-color: #054978; background: #054978; outline: none;color: #fff;">Submit</button>
+                border-color: #054978; background: #054978; outline: none;color: #fff;"><?php echo $messages['submit']; ?></button>
         </div>
     </div>
 </form>
