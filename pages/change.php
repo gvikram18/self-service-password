@@ -192,53 +192,25 @@ if ( $result === "" ) {
 if ( in_array($result, $obscure_failure_messages) ) { $result = "badcredentials"; }
 ?>
 
-<div class="result alert alert-<?php echo get_criticity($result) ?>">
+<section class="result alert alert-<?php echo get_criticity($result) ?>" style="border-left: 5px solid transparent; border-radius: 3px; border-color: rgba(80,185,216,0.1);border-left-color: #054978;
+    background: rgba(80,185,216,0.1); color: #1a6075;">
 <p><i class="fa fa-fw <?php echo get_fa_class($result) ?>" aria-hidden="true"></i> <?php echo $messages[$result]; ?>
 <?php if ( $show_extended_error and $extended_error_msg ) { ?>
  (<?php echo $extended_error_msg ?>)
 <?php } ?>
 </p>
-</div>
+</section>
 
 <?php if ( isset($posthook_return) and $display_posthook_error and $posthook_return > 0 ) { ?>
 
-<div class="result alert alert-warning">
+<section class="result alert alert-warning" style="border-left: 5px solid transparent; border-radius: 3px; border-color: rgba(80,185,216,0.1);border-left-color: #054978;
+    background: rgba(80,185,216,0.1); color: #1a6075;">
 <p><i class="fa fa-fw fa-exclamation-triangle" aria-hidden="true"></i> <?php echo $posthook_output[0]; ?></p>
-</div>
+</section>
 
 <?php } ?>
 
 <?php if ( $result !== "passwordchanged" ) { ?>
-
-<?php
-if ( $show_help ) {
-    echo "<div class=\"help alert alert-warning\"><p>";
-    echo "<i class=\"fa fa-fw fa-info-circle\"></i> ";
-    echo $messages["changehelp"];
-    echo "</p>";
-    if (isset($messages['changehelpextramessage'])) {
-        echo "<p>" . $messages['changehelpextramessage'] . "</p>";
-    }
-    if ( !$show_menu and ( $use_questions or $use_tokens or $use_sms or $change_sshkey ) ) {
-        echo "<p>".  $messages["changehelpreset"] . "</p>";
-        echo "<ul>";
-        if ( $use_questions ) {
-            echo "<li>" . $messages["changehelpquestions"] ."</li>";
-        }
-        if ( $use_tokens ) {
-            echo "<li>" . $messages["changehelptoken"] ."</li>";
-        }
-        if ( $use_sms ) {
-            echo "<li>" . $messages["changehelpsms"] ."</li>";
-        }
-        if ( $change_sshkey ) {
-            echo "<li>" . $messages["changehelpsshkey"] . "</li>";
-        }
-        echo "</ul>";
-    }
-    echo "</div>\n";
-}
-?>
 
 <?php
 if ($pwd_show_policy_pos === 'above') {
@@ -246,11 +218,11 @@ if ($pwd_show_policy_pos === 'above') {
 }
 ?>
 
-<div class="alert alert-info">
+<div class="alert alert-info" style="font-family: SourceSansPro,Helvetica,Arial,sans-serif; background: #ffffff; border-color: white;">
 <form action="#" method="post" class="form-horizontal">
     <div class="form-group">
         <label for="login" class="col-sm-4 control-label"><?php echo $messages["login"]; ?></label>
-        <div class="col-sm-8">
+        <div class="col-sm-4">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-fw fa-user"></i></span>
                 <input type="text" name="login" id="login" value="<?php echo htmlentities($login) ?>" class="form-control" placeholder="<?php echo $messages["login"]; ?>" />
@@ -259,7 +231,7 @@ if ($pwd_show_policy_pos === 'above') {
     </div>
     <div class="form-group">
         <label for="oldpassword" class="col-sm-4 control-label"><?php echo $messages["oldpassword"]; ?></label>
-        <div class="col-sm-8">
+        <div class="col-sm-4">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-fw fa-lock"></i></span>
                 <input type="password" name="oldpassword" id="oldpassword" class="form-control" placeholder="<?php echo $messages["oldpassword"]; ?>" />
@@ -268,7 +240,7 @@ if ($pwd_show_policy_pos === 'above') {
     </div>
     <div class="form-group">
         <label for="newpassword" class="col-sm-4 control-label"><?php echo $messages["newpassword"]; ?></label>
-        <div class="col-sm-8">
+        <div class="col-sm-4">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-fw fa-lock"></i></span>
                 <input type="password" name="newpassword" id="newpassword" class="form-control" placeholder="<?php echo $messages["newpassword"]; ?>" />
@@ -277,7 +249,7 @@ if ($pwd_show_policy_pos === 'above') {
     </div>
     <div class="form-group">
         <label for="confirmpassword" class="col-sm-4 control-label"><?php echo $messages["confirmpassword"]; ?></label>
-        <div class="col-sm-8">
+        <div class="col-sm-4">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-fw fa-lock"></i></span>
                 <input type="password" name="confirmpassword" id="confirmpassword" class="form-control" placeholder="<?php echo $messages["confirmpassword"]; ?>" />
@@ -286,17 +258,20 @@ if ($pwd_show_policy_pos === 'above') {
     </div>
 <?php if ($use_recaptcha) { ?>
     <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-8">
+        <div class="col-sm-offset-4 col-sm-4">
             <div class="g-recaptcha" data-sitekey="<?php echo $recaptcha_publickey; ?>" data-theme="<?php echo $recaptcha_theme; ?>" data-type="<?php echo $recaptcha_type; ?>" data-size="<?php echo $recaptcha_size; ?>"></div>
             <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=<?php echo $lang; ?>"></script>
         </div>
     </div>
 <?php } ?>
     <div class="form-group">
-        <div class="col-sm-offset-4 col-sm-8">
-            <button type="submit" class="btn btn-success">
+        <div class="col-sm-offset-4 col-sm-4">
+            <!--<button type="submit" class="btn btn-success">
                 <i class="fa fa-fw fa-check-square-o"></i> <?php echo $messages['submit']; ?>
-            </button>
+            </button>-->
+            <button type="submit" name="login" class="btn btn-primary" style="margin: 50px 0 0;display: block; width: 100%; margin: 50px 0 10px; padding: 15px 5px; font-size: 20px; box-sizing: border-box; line-height: normal;box-shadow: 0 1px 1px rgba(0,0,0,0.12); text-shadow: none;
+                font-family: 'SourceSansPro', Helvetica, Arial, sans-serif;
+                border-color: #054978; background: #054978; outline: none;color: #fff;">Submit</button>
         </div>
     </div>
 </form>

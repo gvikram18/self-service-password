@@ -1,23 +1,4 @@
 <?php
-#==============================================================================
-# LTB Self Service Password
-#
-# Copyright (C) 2009 Clement OUDOT
-# Copyright (C) 2009 LTB-project.org
-#
-# This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License
-# as published by the Free Software Foundation; either version 2
-# of the License, or (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# GPL License: http://www.gnu.org/licenses/gpl.txt
-#
-#==============================================================================
 
 ob_start();
 
@@ -182,32 +163,31 @@ $mailer->LE            = $mail_newline;
     <meta name="author" content="LDAP Tool Box" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <!--<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />-->
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/self-service-password.css" />
-    <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
-    <link href="images/favicon.ico" rel="shortcut icon" />
-<!--<?php if (isset($background_image)) { ?>
+    <link href="https://demo.uniclair.com/themes/FlamingParrot/images/favicon.ico" rel="shortcut icon" />
+    <?php if (isset($background_image)) { ?>
      <style>
        html, body {
-         background: url("<?php echo $background_image ?>") no-repeat center fixed;
+         background: url("https://demo.uniclair.com/themes/FlamingParrot/images/login/login-background-blue.png") no-repeat center fixed;
          background-size: cover;
        }
   </style>
-<?php } ?> -->
+<?php } ?>  
 </head>
-<!--<body>-->
  <!-- ============================================================================ --> 
  <body class="homepage" data-user-locale="en_US" style="display: flex;
     flex-direction: column; min-height: 100vh; padding: 45px 0 0; background: #f6f6f6; color: #333; font-family: SourceSansPro,Helvetica,Arial,sans-serif; line-height: 1;" >
-    <header style="display: flex; position: fixed; top: 0; left: 0; flex-direction: column; width: 100%; background: #fff; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1); z-index: 100000;">
+   <!-- <header style="display: flex; position: fixed; top: 0; left: 0; flex-direction: column; width: 100%; background: #fff; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1); z-index: 100000;">
       <div class="header-container" style="display: flex; justify-content: space-between;
        height: 45px;">
         <div class="header-nav" style="display: flex;">
           <img id="logo" src="https://demo.uniclair.com/themes/BurningParrot/images/organization_logo.png" alt="Logo" style="display: inline-block; flex: 0 0 auto;
           width: 250px; height: 45px; background: #054978">
-        </div>  
+        </div>   
       </div>
-    </header>
+    </header>-->
   <!-- ============================================================================ -->  
 <div class="container">
 
@@ -215,15 +195,9 @@ $mailer->LE            = $mail_newline;
 <div class="panel-body">
 
 <?php if ( $show_menu ) {
-    include("menu.php");
+    include("menu_copy.php");
 } else { ?>
 <div class="title alert alert-success text-center"><h1><?php echo $messages["title"]; ?></h1></div>
-<?php } ?>
-
-<?php if ( $logo ) { ?>
-<a href="index.php" alt="Home">
-<img src="<?php echo $logo; ?>" alt="Logo" class="logo img-responsive center-block" />
-</a>
 <?php } ?>
 
 <?php
